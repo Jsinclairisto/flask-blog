@@ -1,4 +1,4 @@
 # About Me
-I am an Assistant Professor of Computer Science at Humboldt State University.
+I am a student at HSU
 
 slug: {{view_name}}
