@@ -1,6 +1,16 @@
 from markdown import markdown
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 import os
-def render_markdown(file_name, dir_path = 'app/views'):
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Sign in')
+
+def render_markdown(file_name, dir_path = 'app/templates'):
     """Takes the specified file path and
     returns it as HTML
     """
@@ -12,3 +22,4 @@ def render_markdown(file_name, dir_path = 'app/views'):
         html = html_file.read()
         html = markdown(html)
     return html
+
