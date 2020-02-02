@@ -29,10 +29,10 @@ def login():
     #     print('request.method is being called')
         
     if form.validate_on_submit():
-        return redirect(url_for('success'))
+        return '<h1>ZOMG IT WORKS LOL</h1>'
         
     return render_template('login.html', title='Sign In', form=form)
-
+    
 
 @app.route('/all')
 def temp_listings():
