@@ -2,6 +2,7 @@
 #namespace
 from app import app
 from os import walk
+from flask_user import roles_required
 from markdown import markdown
 from flask import render_template_string, render_template, flash, redirect, request, url_for
 from app.blog_helpers import render_markdown, LoginForm
@@ -9,15 +10,34 @@ import os
 #safe global import (okay to use)
 import flask
 
+hasAccess = False
+
 #home page
 @app.route("/")
 def home():
     return render_template('index.html')
 
+
+@app.route('/edit/<edited_page_name>')   
+def edit(edited_page_name):
+    edit_page = render_markdown(edited_page_name + '.html')
+    print(hasAccess)
+    if(hasAccess == True):
+         return render_template_string(edit_page, edited_page_name = edited_page_name)
+    else:
+        return '<h1>YOOOOOOOOOO NOOOOOOOOOOO</h1>'
+
 #Success page. Directs here after form is submitted
 @app.route('/success')
 def success():
-    return render_template('contacts.html')
+    hasAccess = True
+    print(hasAccess)
+    return render_template('success.html')
+       
+# @app.route("/click_tracker", methods=['GET','POST'])
+# def click_tracker():
+#     view_name = {}
+#     view_data[""]
 
 #Login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -29,13 +49,17 @@ def login():
     #     print('request.method is being called')
         
     if form.validate_on_submit():
-        return '<h1>ZOMG IT WORKS LOL</h1>'
-        
+        return redirect('success')
+    # else:
+    #     return '<h1>YOU FUCKED UP AAAHHH!</h1>'
+
     return render_template('login.html', title='Sign In', form=form)
-    
 
 @app.route('/all')
 def temp_listings():
+
+    #view_data = {}
+    #view_data["pages"] = (['about.html', 'butt.html', 'icecream.html'])
 
     #assigns current directory to base_path variable
     base_path = os.getcwd()
@@ -45,7 +69,6 @@ def temp_listings():
 
     #assigns combo to file_path
     file_path = os.path.relpath(dest_path, base_path)
-
 
     files = os.listdir(file_path)
 
@@ -58,5 +81,5 @@ def temp_listings():
 def render_page(view_name):
     html = render_markdown(view_name + '.html')
     print('YOOOOO IT WORKS AYYYYY')
-    return render_template_string(html, view_name = view_name)
     
+    return render_template_string(html, view_name = view_name)
