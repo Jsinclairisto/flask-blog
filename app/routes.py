@@ -62,8 +62,6 @@ def temp_listings():
 
     return render_template('all.html', files=files)
 
-
-
 #generic page
 @app.route('/<view_name>')
 
@@ -78,20 +76,19 @@ def render_page(view_name):
 #@roles_required('Admin')
 def edit(edit_file):
     
+    output_page = render_markdown(edit_file + '.html')
+    return render_template('edit.html', output_page=output_page)
 
     #edit_page = render_markdown(edited_page_name + '.html')
     #base_path=temp_listings()
     #final_page = render_markdown(edit_file + '.html')
-    fname = r"/home/jakob/Desktop/flask-blog/app/templates/all.html"
-    edit_file = open(fname, 'w')
-    return edit_file
 
 
-    contents = ""
-    with open('app/templates/' + final_page) as f:
-        for line in f.readlines():
-            contents += line  
-        return render_template('edit.html', contents=contents)
+    # contents = ""
+    # with open('app/templates/' + final_page) as f:
+    #     for line in f.readlines():
+    #         contents += line  
+    #     return render_template('edit.html', contents=contents)
     
    
 

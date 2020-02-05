@@ -9,16 +9,16 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 </head>
 <body>
-  <div id="summernote"><p>Hello Summernote</p></div>
+  <div id="summernote"><p>{{output_page}}</p></div>
   <script>
     $(document).ready(function() {
         $('#summernote').summernote();
     });
   </script>
+  
+  <!-- <textarea name="comment" form="usrform" rows="20" cols="60">{{output_page}}</textarea>  -->
 
-  <p>{{contents}}</p>
-
-  <script>
+  <!-- <script>
     function myFunction() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -29,8 +29,7 @@
         xhttp.open("POST", "http://127.0.0.1:5000/python/", true);
         xhttp.send();
       }
-  </script>
-  
+  </script> -->
   
 </body>
 </html>
