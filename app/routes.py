@@ -53,6 +53,7 @@ def temp_listings():
 
     #assigns current directory to base_path variable
     base_path = os.getcwd()
+    
     #combines base path with target path. This way, it will work with all users.
     #They'll have different base paths, but will have the same sub-path of '/app/templates'
     dest_path = base_path + '/app/templates'

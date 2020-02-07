@@ -25,3 +25,5 @@ def render_markdown(file_name, dir_path = 'app/templates'):
         html = html_file.read()
         html = markdown(html)
     return html
+
+
