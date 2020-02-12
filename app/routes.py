@@ -82,7 +82,7 @@ def render_page(view_name):
     return render_template_string(html, view_name = view_name)
 
 @app.route('/edit/<edit_file>')   
-#@roles_required('Admin')
+@login_required
 def edit(edit_file):
     hasAccess = login()
     output_page = render_markdown(edit_file + '.html')
