@@ -24,32 +24,16 @@ def success():
     print(hasAccess)
     return render_template('success.html')
        
-# @app.route("/click_tracker", methods=['GET','POST'])
-# def click_tracker():
-#     view_name = {}
-#     view_data[""]
-
 #Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     hasAccess = False
-    # if request.method == 'POST':
-    #     session['user_name'] = request.values['user_name']
-    #     print('request.method is being called')
+
     
     if form.validate_on_submit():
         hasAccess = True
-        return redirect('success')
-
-    # view_data = {}
-    # view_data["click_count"] = 0
-    # if request.method == 'POST':
-    #     view_data["click_count"] = request.values["click_count"]
-    #     view_data["click_count"] = int(view_data["click_count"]) + 1
-
-    
-        
+        return redirect('success')        
     # else:
     #     return '<h1>YOU FUCKED UP AAAHHH!</h1>'
 
@@ -88,27 +72,6 @@ def edit(edit_file):
     output_page = render_markdown(edit_file + '.html')
     return render_template('edit.html', output_page=output_page)
             
-
-    #edit_page = render_markdown(edited_page_name + '.html')
-    #base_path=temp_listings()
-    #final_page = render_markdown(edit_file + '.html')
-
-
-    # contents = ""
-    # with open('app/templates/' + final_page) as f:
-    #     for line in f.readlines():
-    #         contents += line  
-    #     return render_template('edit.html', contents=contents)
-    
-   
-
-    #log = open(base_path, "r")
-
-    # print(hasAccess)
-    # if(hasAccess == True):
-    #      return render_template_string(edit_page, edited_page_name = edited_page_name)
-    # else:
-    #     return '<h1>YOOOOOOOOOO NOOOOOOOOOOO</h1>'
 
 @app.route('/createaccount')
 def createaccount():
