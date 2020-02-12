@@ -112,4 +112,4 @@ def edit(edit_file):
 
 @app.route('/createaccount')
 def createaccount():
-    return '<h1>POOP :D</h1>'
+    return '<h1>Currently in development...</h1>'
