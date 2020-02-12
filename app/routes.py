@@ -33,13 +33,23 @@ def success():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-
+    hasAccess = False
     # if request.method == 'POST':
     #     session['user_name'] = request.values['user_name']
     #     print('request.method is being called')
-        
+    
     if form.validate_on_submit():
+        hasAccess = True
         return redirect('success')
+
+    # view_data = {}
+    # view_data["click_count"] = 0
+    # if request.method == 'POST':
+    #     view_data["click_count"] = request.values["click_count"]
+    #     view_data["click_count"] = int(view_data["click_count"]) + 1
+
+    
+        
     # else:
     #     return '<h1>YOU FUCKED UP AAAHHH!</h1>'
 
@@ -48,7 +58,6 @@ def login():
 @app.route('/all')
 def temp_listings():
 
-    #view_data = {}
     #view_data["pages"] = (['about.html', 'butt.html', 'icecream.html'])
 
     #assigns current directory to base_path variable
@@ -70,15 +79,15 @@ def temp_listings():
 def render_page(view_name):
     html = render_markdown(view_name + '.html')
     print('YOOOOO IT WORKS AYYYYY')
-    
     return render_template_string(html, view_name = view_name)
 
 @app.route('/edit/<edit_file>')   
 #@roles_required('Admin')
 def edit(edit_file):
-    
+    hasAccess = login()
     output_page = render_markdown(edit_file + '.html')
     return render_template('edit.html', output_page=output_page)
+            
 
     #edit_page = render_markdown(edited_page_name + '.html')
     #base_path=temp_listings()
@@ -100,3 +109,7 @@ def edit(edit_file):
     #      return render_template_string(edit_page, edited_page_name = edited_page_name)
     # else:
     #     return '<h1>YOOOOOOOOOO NOOOOOOOOOOO</h1>'
+
+@app.route('/createaccount')
+def createaccount():
+    return '<h1>POOP :D</h1>'
