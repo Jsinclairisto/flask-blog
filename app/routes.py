@@ -72,7 +72,11 @@ def edit(edit_file):
     output_page = render_markdown(edit_file + '.html')
     return render_template('edit.html', output_page=output_page)
             
-
+@app.route('/createpost')
+@login_required
+def createpost():
+    return '<h1>Hello People of Earth</h1>'
+    
 @app.route('/createaccount')
 def createaccount():
     return '<h1>Currently in development...</h1>'
