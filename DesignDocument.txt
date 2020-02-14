@@ -1,0 +1,24 @@
+Jakob Fletcher
+Adam Carter
+CS 232
+2/12/2020
+
+            One primary struggle I had with this assignment had less to do with the actual assignment, and more to do with deployment.
+    I had the idea to host the flask blog on heroku, and I tried deploying it there, but the result was unsuccessful. 
+    There were a lot of required documents that I didn’t have. 
+    So after I created the needed documents, It said the deploy was successful, however it also says that there is an application error, and that the page could not be served. 
+    This was an issue I was unable to resolve. Another goal of the assignment that I had a hard time figuring out was the “edit” route. 
+    This was something I had to spend a lot of time thinking about, but the solution was somewhat simple. 
+    I just declared a variable that interpreted html pages, and passed it through an HTML form using Jinja. 
+    The best possible way for a new student to succeed in this assignment is to START EARLY, SAVE OFTEN, AND EXPERIMENT. 
+    Even if they aren’t necessarily interested in web development, there is still a lot of overlap regarding other aspects of Computer Science. 
+    For example, if the student is more into game development, they could make an online hosting service for their unity games. 
+            To me, the most fun I had with this assignment was actually seeing it work. The moments where I saw my project doing what I inteded were the best ones, because it encouraged me to work on the assignment and
+    experiment more.
+    In terms of understanding the project guidelines, It was pretty straightforward. 
+    The only thing that confused me at first was what was required for <web_root>/all. This is only because I didn’t know which directory I should be fetching. 
+    I figured that the templates page should be fetched in the all route, as it’s the directory with all of the html files. For future development of this project, I wish to implement a log-out button. 
+    It would go well with the edit route, as it requires authentication, and I don’t know of a way to end the session at the moment. 
+    If I were to make a recommendation for the assignment itself, I would cut down on the functionality that the flask app is required to perform. 
+    Only because the skill level among students varies widely, and the amount of things that you have to do for this first assignment is sort of overwhelming. 
+    But other than that, I had a lot of fun with it. It’s actually been a while since I have been this engaged in an assignment for school.
