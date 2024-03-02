@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 import config
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'shhhhh_its_a_secret'
+app.config['SECRET_KEY'] = 'shhhhh_it_is_a_secret'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['CSRF_ENABLED'] = True
